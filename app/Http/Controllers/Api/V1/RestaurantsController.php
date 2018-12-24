@@ -19,6 +19,16 @@ class Restauransontroller extends Controller
 
     protected $model;
 
+    protected $rules = [
+        'name' => 'required|min:3',
+        'description' => 'required'
+    ];
+
+    protected $messages = [
+        'required' => ':attribute é obrigatório',
+        'min' => ':attribute precisa de pelo menos :min caracteres'
+    ];
+
     public function __construct(Restaurant $model)
     {
         $this->model = $model;
